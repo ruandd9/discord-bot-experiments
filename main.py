@@ -62,6 +62,37 @@ async def enviar_embed(ctx:commands.Context):
 
     await ctx.reply(embed=minha_embed, file=imagem)
 
+@bot.command()
+async def enviar_embed_abilio(ctx:commands.Context):
+    minha_embed = discord.Embed()
+    minha_embed.title = "Abelardo Bispo Abilio BJJ"
+    minha_embed.description = "Atleta profissional brazilian jiu-jitsu moves"
+
+    imagem = discord.File("img/abilio_avatar.png", "abilio.png")
+    minha_embed.set_image(url="attachment://abilio.png")
+
+    minha_embed.set_footer(text="Esse e o footer da minha imagem")
+
+    minha_embed.set_author(name="Son Goku", icon_url="https://i.pinimg.com/736x/22/c4/ac/22c4ac333f156c1f775f07b4b5137d67.jpg", url="https://github.com/ruandd9/discord-bot-experiments")
+
+    await ctx.reply(embed=minha_embed, file=imagem)
+
+@bot.command()
+async def enviar_embed_pedro(ctx:commands.Context):
+    minha_embed = discord.Embed()
+    minha_embed.title = "Pedro Lobo Sandri Cegueta"
+    minha_embed.description = "Jovem cego do alto escalao brasileiro $$$$$$$$$$$$$$"
+
+    imagem = discord.File("img/pedro_avatar.png", "pedro.png")
+    minha_embed.set_image(url="attachment://pedro.png")
+
+    minha_embed.set_footer(text="Monica Sandri, Laura safadinha, Alexandre careca sandri pai, alexandre gayzinho irmao Snadri")
+
+    minha_embed.set_author(name="Son Goku", icon_url="https://i.pinimg.com/736x/22/c4/ac/22c4ac333f156c1f775f07b4b5137d67.jpg", url="https://github.com/ruandd9/discord-bot-experiments")
+
+    await ctx.reply(embed=minha_embed, file=imagem)
+
+
 @tasks.loop(time=time(16, 48))
 async def enviar_mensagem():
     canal = bot.get_channel(1348179381524238356)
@@ -85,5 +116,5 @@ async def somar (interact:discord.Interaction, n1:int, n2:int):
 async def selecionar_membro (interact:discord.Interaction, membro:discord.Member):
     await interact.response.send_message(f"O membro selecionado foi {membro.mention}!!")
 
-    
+
 bot.run(os.getenv("DISCORD_TOKEN"))
