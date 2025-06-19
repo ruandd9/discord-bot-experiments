@@ -71,4 +71,19 @@ async def enviar_mensagem():
 async def ola(interact:discord.Interaction):
     await interact.response.send_message(f"Ola {interact.user.name}!!", ephemeral=True)
 
+@bot.tree.command()
+async def falar(interact:discord.Interaction, texto:str):
+    await interact.response.send_message(texto)
+
+@bot.tree.command()
+async def somar (interact:discord.Interaction, n1:int, n2:int):
+    resultado = n1 + n2
+    await interact.response.send_message(f"O resultado entre {n1} e {n2} é {resultado}")
+
+
+@bot.tree.command()
+async def selecionar_membro (interact:discord.Interaction, membro:discord.Member):
+    await interact.response.send_message(f"O membro selecionado foi {membro.mention}!!")
+
+    
 bot.run(os.getenv("DISCORD_TOKEN"))
